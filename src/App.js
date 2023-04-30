@@ -11,7 +11,22 @@ const App = () => {
         </nav>
       </section>
 
-      <section className='main'></section>
+      <section className='main'>
+      <h1>AniaGPT</h1>
+        <ul className='feed'> 
+            <li> feed goes in here</li>
+        </ul>
+        <div className="bottom-section">
+          <div className="input-container">
+            <input />
+            <div id="submit"> ➢ </div>
+          </div>
+          <p className="info">
+              Powered by Chat GPT Mar 14 Version, a Free Research Preview.
+          </p>
+        </div>
+      </section>
+        
 
 
     </div>
