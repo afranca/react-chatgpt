@@ -3,16 +3,19 @@
 This project is based on Ania ChatGPT clone [AniaChatGPT clone](https://www.youtube.com/watch?v=uRQH2CFvedY&t=4542s).
 
 ## Create an OpenAI account
-OpenAI Main Site: https://openai.com/
-Developers API Reference: https://platform.openai.com/docs/api-reference
+### OpenAI Main Site: 
+    https://openai.com/
+### Developers API Reference: 
+    https://platform.openai.com/docs/api-reference
 
 ## Enviroment Variables
-Create a `.env` file in your project root directory with an API_KEY defined
-Eg.: API_KEY = sk-zpV8DGYvb3B6KAHJ6Qx2T3AmptXGhnbHruTetERqGGPuW1hK
+Create a `.env` file in your project root directory with an API_KEY defined.
+This API Key can be found under you OpenAI account. 
+### .env example: 
+API_KEY = sk-zpV8DGYvb3B6KAHJ6Qx2T3AmptXGhnbHruTetERqGGPuW1hK
 
-This API Key can to be found under you OpenAI account. 
-
-## Execute `npm install` to get all dependencies
+## Install all dependencies
+Execute `npm install` to get all dependencies
 
 ## Front end
 Run the front end by executing this script: `npm run start:front`
