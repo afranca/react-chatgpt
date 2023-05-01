@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 const App = () => {
   const [value, setValue] = useState(null)
   const [message, setMessage] = useState(null)
+  const [chatHistory, setChatHistory] = useState([])
+  const [currentTitle, setCurrentTitle] = useState(null)
 
   const getMessages = async () => {
     const options = {
@@ -23,10 +25,25 @@ const App = () => {
     } catch (error) {
       console.error(`Error from backend: ${error.message}`)
       console.error(error)
-    }
-
+    } 
   }
 
+  useEffect( ()=>{
+    console.log(currentTitle, value, message);
+    if (!currentTitle && value && message){
+      setCurrentTitle(value)
+    }
+    if (currentTitle && value && message){
+      setChatHistory(
+        prevChats => (
+          [...prevChats, 
+            { title: currentTitle, role: "user", content: value }, 
+            { title: currentTitle, role: message.role, content: message.content }
+          ]
+        )
+      )
+    }    
+  },[message, currentTitle, value]);
   return (
     <div className="app">   
       <section className="side-bar"> 
@@ -40,9 +57,10 @@ const App = () => {
       </section>
 
       <section className='main'>
-      <h1>AniaGPT</h1>
+        {!currentTitle && <h1>AniaGPT</h1>}
         <ul className='feed'> 
             <li> feed goes in here</li>
+            {}
         </ul>
         <div className="bottom-section">
           <div className="input-container">
