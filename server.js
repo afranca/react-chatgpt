@@ -1,3 +1,4 @@
+require('dotenv')
 const PORT=8000
 const express = require('express')
 const cors = require('cors')
@@ -6,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-const KEY = '**** secret'
+const KEY = process.env.API_KEY
 const MODEL = 'gpt-3.5-turbo'
 
 app.post('/completions', async (req, res) => {
