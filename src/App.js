@@ -1,4 +1,34 @@
+//import { useState, useEffect } from "react";
+
+
+
 const App = () => {
+
+  //const [message, setMessage] = useState(null)
+
+  const getMessages = async () => {
+    const options = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body:JSON.stringify({
+        model: "gpt-3.5-turbo",
+        message: "Hello, how are you?"
+      })
+    }
+    try {
+      console.log(`sending request to backend: ${options}`) 
+      const response = await fetch('http://localhost:8000/completions', options)
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error(`Error from backend: ${error.message}`)
+      console.error(error)
+    }
+
+  }
+
   return (
     <div className="app">   
       <section className="side-bar"> 
@@ -19,7 +49,7 @@ const App = () => {
         <div className="bottom-section">
           <div className="input-container">
             <input />
-            <div id="submit"> ➢ </div>
+            <div id="submit" onClick={getMessages}> ➢ </div>
           </div>
           <p className="info">
               Powered by Chat GPT Mar 14 Version, a Free Research Preview.
